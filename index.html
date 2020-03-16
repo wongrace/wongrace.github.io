@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="echarts.min.js"></script>
+    <script src="macarons.js"></script>
+    <title>港澳台热门餐厅</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <!-- .site-mobile-menu -->
+
+
+        <div class="site-navbar-wrap">
+
+            <div class="site-navbar site-navbar-target js-sticky-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-lg-3">
+                            <h1 class="my-0 site-logo"><a href="index.html">港澳台热门餐厅</a></h1>
+                        </div>
+                        <div class="col-6 col-lg-9">
+                            <nav class="site-navigation text-right" role="navigation">
+                                <div class="container">
+
+                                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3 ">
+                                        <a href="#" class="site-menu-toggle js-menu-toggle text-black">
+                                            <span class="icon-menu h3"></span>
+                                        </a>
+                                    </div>
+
+                                    <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                        <li><a href="#home-section" class="nav-link">内容概述</a></li>
+                                        <li><a href="#features-section" class="nav-link">看菜系</a></li>
+                                        <li><a href="#about-section" class="nav-link">看价格</a></li>
+                                        <li><a href="#testimonial-section" class="nav-link">看区域</a></li>
+                                        <li><a href="#contact-section" class="nav-link">看名称</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END .site-navbar-wrap -->
+
+
+
+        <div class="site-section" id="home-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+
+                        <h1 class="text-white serif text-uppercase mb-4"></h1>
+                        <p class="text-white mb-5">在疫情期间，许多人虽然在家厨艺精进，但是脑子里还是不断涌现炸鸡、火锅、奶茶、寿司等等高热量的幸福源泉。今天我们就来看看港澳台三地的热门餐厅吧！</p>
+                        <p><a href="#" class="btn btn-white px-4 py-3">开启收割美食知识之旅</a></p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div id="rext">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section bg-light" id="features-section">
+            <div class="container" style="height: 500px;">
+                <div id="foodtype" style="margin-left:0; width: 60%;height:400px; float: left;"></div>
+                <script type="text/javascript">
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('foodtype'), 'macarons');
+
+                    // 指定图表的配置项和数据
+                    var option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                            }
+                        },
+                        legend: {
+                            data: ['日本菜', '西式', '港式', '葡国菜', '粤菜', '台湾菜', '欧陆菜', '其他']
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            type: 'value'
+                        },
+                        yAxis: {
+                            type: 'category',
+                            data: ['香港', '澳门', '台北']
+                        },
+                        series: [{
+                            name: '日本菜',
+                            type: 'bar',
+                            stack: '总量',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [56, 15, 66]
+                        }, {
+                            name: '粤菜',
+                            type: 'bar',
+                            stack: '总量',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [13, 55]
+                        }, {
+                            name: '西式',
+                            type: 'bar',
+                            stack: '总量',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [44, 26]
+                        }, {
+                            name: '港式',
+                            type: 'bar',
+                            stack: '总量',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [24, 36, 5]
+                        }, {
+                            name: '葡国菜',
+                            type: 'bar',
+                            stack: '总量',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [0, 43, 0]
+                        }, {
+                            name: '台湾菜',
+                            type: 'bar',
+                            stack: '总量',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [11, 4, 62]
+                        }, {
+                            name: '欧陆菜',
+                            type: 'bar',
+                            stack: '总量',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [0, 0, 24]
+                        }, {
+                            name: '其他',
+                            type: 'bar',
+                            stack: '总量',
+                            label: {
+                                show: true,
+                                position: 'insideRight'
+                            },
+                            data: [102, 71, 93]
+                        }]
+                    };
+
+
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart.setOption(option);
+                </script>
+                <div float="left">
+
+                    <h2>看菜系</h2>
+                    <p>问题来了，哪个菜系是香港最受欢迎的呢？当然是满满港式风情的茶餐厅啦!</p>
+                    <p> 但是事实并非如此。香港热门的菜系中占比最高的是日本菜，其次是西式菜品，港式仅居第三位。</p>
+                    <p>在台北，处于热门菜系第一位的依然是日本菜系，其次是台湾菜系，最后是多国菜。 </p>
+                    <p>相较于前两地，澳门地区就比较按套路出牌了，热门菜系按比重从大到小依次排列为粤菜、葡国菜、港式。</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section" id="about-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div>
+                    <h2>看价格</h2>
+
+                    <p>总体来说，港澳台热门餐厅的均价（期望值）分别约是190.48hkd，163.03hkd，110.83hkd。</p>
+                    <p>澳门餐厅的价格区间分布较均匀，其中50hkd一下的餐厅占比最多。</p>
+                    <p>香港有近一半的热门餐厅的价格集中在100-200hkd的区间。</p>
+                    <p>台北热门餐厅集中在200-500新台币这一价格区间（约46%），相当于50-130hkd。</p>
+                    <p>由此可见，大部分香港的热门餐厅价格要高于澳门和台北。</p>
+
+                </div>
+            </div>
+            <div style=" width: 100%;height:400px" id="price"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('price'), 'macarons');
+
+                // 指定图表的配置项和数据
+                var
+
+                    option = {
+                    title: [{
+                        subtext: '澳门热门餐厅价格区间分布图（港币）',
+                        left: '25%',
+                        top: '75%',
+                        textAlign: 'center'
+                    }, {
+                        subtext: '香港热门餐厅价格区间分布图（港币）',
+                        left: '50%',
+                        top: '75%',
+                        textAlign: 'center'
+                    }, {
+                        subtext: '台北热门餐厅价格区间分布图（台币）',
+                        left: '75%',
+                        top: '75%',
+                        textAlign: 'center'
+                    }],
+                    series: [{
+                        type: 'pie',
+                        radius: '25%',
+                        center: ['50%', '50%'],
+                        data: [{
+                            name: '101-200',
+                            value: 123
+                        }, {
+                            name: '201-400',
+                            value: 71
+                        }, {
+                            name: '51-100',
+                            value: 39
+                        }, {
+                            name: '50以下',
+                            value: 7
+                        }, {
+                            name: '401-800',
+                            value: 7
+                        }, {
+                            name: '801以上',
+                            value: 3
+                        }],
+                        animation: false,
+                        label: {
+                            position: 'outer',
+                            alignTo: 'none',
+                            bleedMargin: 5
+                        },
+                        left: 0,
+                        right: '66.6667%',
+                        top: 0,
+                        bottom: 0
+                    }, {
+                        type: 'pie',
+                        radius: '25%',
+                        center: ['25%', '50%'],
+                        data: [{
+                            name: '50以下',
+                            value: 85
+                        }, {
+                            name: '101-200',
+                            value: 63
+                        }, {
+                            name: '201-400',
+                            value: 36
+                        }, {
+                            name: '51-100',
+                            value: 35
+                        }, {
+                            name: '401-800',
+                            value: 25
+                        }, {
+                            name: '801以上',
+                            value: 6
+                        }],
+                        animation: false,
+                        label: {
+                            position: 'outer',
+                            alignTo: 'labelLine',
+                            bleedMargin: 5
+                        },
+                        left: '33.3333%',
+                        right: '33.3333%',
+                        top: 0,
+                        bottom: 0
+                    }, {
+                        type: 'pie',
+                        radius: '25%',
+                        center: ['75%', '50%'],
+                        data: [{
+                            name: '201-500',
+                            value: 116
+                        }, {
+                            name: '501-1000',
+                            value: 49
+                        }, {
+                            name: '101-200',
+                            value: 35
+                        }, {
+                            name: '100以下',
+                            value: 22
+                        }, {
+                            name: '1001-1500',
+                            value: 14
+                        }, {
+                            name: '1500以上',
+                            value: 12
+                        }],
+                        animation: false,
+                        label: {
+                            position: 'outer',
+                            alignTo: 'edge',
+                            margin: 20
+                        },
+                        left: '66.6667%',
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }]
+                }; // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+
+        </div>
+    </div>
+
+    <div class="author  d-lg-flex" id="testimonial-section" style="background-color:whitesmoke">
+        <div id="location" style="width: 60%;height:600px" float="left"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('location'), 'macarons');
+
+            // 指定图表的配置项和数据
+            var option = {
+                series: [{
+                    type: 'treemap',
+                    data: [{
+                        name: '香港',
+                        value: 250,
+                        children: [{
+                            name: '尖沙咀', // First leaf of first tree
+                            value: 56
+                        }, {
+                            name: '铜锣湾', // First leaf of first tree
+                            value: 51
+                        }, {
+                            name: '旺角', // First leaf of first tree
+                            value: 46
+                        }, {
+                            name: '观塘', // First leaf of first tree
+                            value: 21
+                        }, {
+                            name: '荃湾', // First leaf of first tree
+                            value: 14
+                        }, {
+                            name: '湾仔', // First leaf of first tree
+                            value: 10
+                        }, {
+                            name: '中环', // First leaf of first tree
+                            value: 8
+                        }, {
+                            name: '太子', // First leaf of first tree
+                            value: 8
+                        }, {
+                            name: '佐敦', // First leaf of first tree
+                            value: 7
+                        }, {
+                            name: '元朗', // First leaf of first tree
+                            value: 5
+                        }, {
+                            name: '大角咀', // First leaf of first tree
+                            value: 3
+                        }, {
+                            name: '油麻地', // First leaf of first tree
+                            value: 3
+                        }, {
+                            name: '九龙城', // First leaf of first tree
+                            value: 2
+                        }, {
+                            name: '沙田', // First leaf of first tree
+                            value: 2
+                        }, {
+                            name: '深水埗', // First leaf of first tree
+                            value: 2
+                        }, {
+                            name: '荔枝角', // Second leaf of first tree
+                            value: 2
+                        }, {
+                            name: '长沙湾', // Second leaf of first tree
+                            value: 2
+                        }, {
+                            name: '上环', // Second leaf of first tree
+                            value: 1
+                        }, {
+                            name: '九龙塘', // Second leaf of first tree
+                            value: 1
+                        }, {
+                            name: '北角', // Second leaf of first tree
+                            value: 1
+                        }, {
+                            name: '大围', // Second leaf of first tree
+                            value: 1
+                        }, {
+                            name: '大埔', // Second leaf of first tree
+                            value: 1
+                        }, {
+                            name: '天后', // Second leaf of first tree
+                            value: 1
+                        }, {
+                            name: '将军澳', // Second leaf of first tree
+                            value: 6
+                        }, {
+                            name: '黄大仙', // Second leaf of first tree
+                            value: 1
+                        }]
+                    }, {
+                        name: '台北', // Second tree
+                        value: 250,
+                        children: [{
+                            name: '大安区', // Son of first tree
+                            value: 83
+                        }, {
+                            name: '中山区', // First leaf of first tree
+                            value: 56
+                        }, {
+                            name: '信义区', // First leaf of first tree
+                            value: 31
+                        }, {
+                            name: '松山区', // First leaf of first tree
+                            value: 21
+                        }, {
+                            name: '中正区', // First leaf of first tree
+                            value: 20
+                        }, {
+                            name: '东华区', // First leaf of first tree
+                            value: 15
+                        }, {
+                            name: '士林区', // First leaf of first tree
+                            value: 8
+                        }, {
+                            name: '大同区', // First leaf of first tree
+                            value: 8
+                        }, {
+                            name: '内湖区', // First leaf of first tree
+                            value: 5
+                        }, {
+                            name: '南港区', // First leaf of first tree
+                            value: 2
+                        }]
+                    }, {
+                        name: "澳门",
+                        value: 250,
+                        children: [{
+                            name: '路凼城',
+                            value: 72
+                        }, {
+                            name: '新马路',
+                            value: 88
+                        }, {
+                            name: '南湾',
+                            value: 18
+                        }, {
+                            name: '宋玉生广场',
+                            value: 15
+                        }, {
+                            name: '新口岸',
+                            value: 11
+                        }, {
+                            name: '新桥',
+                            value: 11
+                        }, {
+                            name: '下环',
+                            value: 10
+                        }, {
+                            name: '沙梨头',
+                            value: 8
+                        }, {
+                            name: '荷兰园',
+                            value: 8
+                        }, {
+                            name: '路环市区',
+                            value: 6
+                        }, {
+                            name: '黑沙环',
+                            value: 6
+                        }, {
+                            name: '东望洋',
+                            value: 4
+                        }, {
+                            name: '高士德',
+                            value: 4
+                        }, {
+                            name: '佑汉',
+                            value: 3
+                        }, {
+                            name: '西湾',
+                            value: 3
+                        }, {
+                            name: '望厦',
+                            value: 2
+                        }, {
+                            name: '合山',
+                            value: 2
+                        }, {
+                            name: '黑沙海滩',
+                            value: 2
+                        }, {
+                            name: '筷子基',
+                            value: 1
+                        }]
+
+                    }]
+                }]
+
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+        <div class="text">
+            <h3>看位置</h3>
+            <p> 香港热门餐厅高度集中于尖沙咀、铜锣湾、旺角；澳门的热门餐厅聚集在路氹（dàng）城、新马路；大安区和中山区则是台北热门餐厅的集中地。</p>
+
+        </div>
+    </div>
+
+
+    </div>
+
+
+    <div class="site-section bg-light" id="contact-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3>看名称</h3>
+                    <p>通过对热门餐厅的名称分析发现，咖啡在三地都很受欢迎。香港热门餐厅对日本菜相关词使用率高比如料理、日本、屋、寿司等；澳门餐厅名称使用葡语；台北的热门餐厅命名除了日本料理相关还有标注地址比如微风、信义、忠孝等等。</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial bg-white h-100">
+                        <!--	Exported from Voyant Tools (voyant-tools.org).
+The iframe src attribute below uses a relative protocol to better function with both
+http and https sites, but if you're embedding this into a local web page (file protocol)
+you should add an explicit protocol (https if you're using voyant-tools.org, otherwise
+it depends on this server.
+Feel free to change the height and width values or other styling below: -->
+                        <iframe style='width: 100%; height: 344px;' src='https://voyant-tools.org/tool/Cirrus/?stopList=keywords-73438cc63785baadcd2a99388a9e83c8&whiteList=&visible=25&corpus=f3c5a8686747b7b39fc8991fe11aac7c'></iframe>
+                        <div class="d-flex align-items-center vcard">
+                            <div class="vcard-text">
+                                <span class="d-block">澳门热门餐厅名称云图</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial bg-white h-100" style="width:400px">
+                        <!--	Exported from Voyant Tools (voyant-tools.org).
+The iframe src attribute below uses a relative protocol to better function with both
+http and https sites, but if you're embedding this into a local web page (file protocol)
+you should add an explicit protocol (https if you're using voyant-tools.org, otherwise
+it depends on this server.
+Feel free to change the height and width values or other styling below: -->
+                        <iframe style='width: 100%; height: 344px;' src='https://voyant-tools.org/tool/Cirrus/?stopList=keywords-cf811dfa3acfd3d0a95542e744fe3fa9&whiteList=&visible=85&corpus=3cd86d7da554d8be2f8d080a20cfff33'></iframe>
+                        <div class="d-flex align-items-center vcard">
+                            <div class="vcard-text">
+                                <span class="d-block">澳门热门餐厅名称云图</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial bg-white h-100" style="width:400px">
+                        <!--	Exported from Voyant Tools (voyant-tools.org).
+The iframe src attribute below uses a relative protocol to better function with both
+http and https sites, but if you're embedding this into a local web page (file protocol)
+you should add an explicit protocol (https if you're using voyant-tools.org, otherwise
+it depends on this server.
+Feel free to change the height and width values or other styling below: -->
+                        <iframe style='width: 100%; height: 344px;' src='https://voyant-tools.org/tool/Cirrus/?stopList=keywords-cf811dfa3acfd3d0a95542e744fe3fa9&whiteList=&visible=85&corpus=3cd86d7da554d8be2f8d080a20cfff33'></iframe>
+                        <div class="d-flex align-items-center vcard">
+                            <div class="vcard-text">
+                                <span class="d-block">台北热门餐厅名称云图</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <h3 class="footer-heading mb-4">About Me</h3>
+                            <p>WANG Ge</p>
+                            <p>the student of Corporate Communication</p>
+                            <p>contact me: 1155134074@link.cuhk.edu.hk</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        </div>
+        </div>
+    </footer>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/stickyfill.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
